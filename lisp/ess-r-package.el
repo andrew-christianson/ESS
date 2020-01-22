@@ -172,7 +172,7 @@ DIR defaults to the current buffer's file name (if non-nil) or
 `default-directory'. Root is determined by locating
 `ess-r-package-root-file'. If the path looks like a tramp file,
 remove the remote information."
-  (when-let ((path (cond
+  (when-let* ((path (cond
                     (dir)
                     ((buffer-file-name)
                      (file-name-directory (buffer-file-name)))

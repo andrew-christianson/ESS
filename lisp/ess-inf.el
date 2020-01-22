@@ -336,8 +336,8 @@ PROJECT-ROOT is directory name returned by `project-roots'. If no
 project directory has been found use
 `ess-gen-proc-buffer-name:simple'. See
 `ess-gen-proc-buffer-name-function'."
-  (if-let ((p (project-current))
-           (proj (car (project-roots p))))
+  (if-let* ((p (project-current))
+            (proj (car (project-roots p))))
       (format "*%s:%s*" proc-name (file-name-nondirectory
                                    (directory-file-name proj)))
     (ess-gen-proc-buffer-name:simple proc-name)))
@@ -349,8 +349,8 @@ PROJECT-ROOT is directory name returned by `project-roots' if
 defined. If no project directory has been found, use
 `ess-gen-proc-buffer-name:directory'. See
 `ess-gen-proc-buffer-name-function'."
-  (if-let ((p (project-current))
-           (proj (car (project-roots p))))
+  (if-let* ((p (project-current))
+            (proj (car (project-roots p))))
       (format "*%s:%s*" proc-name (file-name-nondirectory
                                    (directory-file-name proj)))
     (ess-gen-proc-buffer-name:directory proc-name)))
